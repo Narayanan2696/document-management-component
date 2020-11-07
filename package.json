@@ -1,0 +1,32 @@
+{
+  "name": "document_management_component",
+  "version": "1.0.0",
+  "description": "document upload and retrieval based on tags",
+  "main": "server.js",
+  "scripts": {
+    "dev": "nodemon run server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "engines": {
+    "node": "12.16.3"
+  },
+  "keywords": [
+    "document",
+    "document",
+    "management",
+    "dmc"
+  ],
+  "author": "Narayanan Venkataraman",
+  "license": "ISC",
+  "dependencies": {
+    "aws-sdk": "^2.787.0",
+    "cors": "^2.8.5",
+    "custom-env": "^2.0.1",
+    "express": "^4.17.1",
+    "express-fileupload": "^1.2.0",
+    "lodash": "^4.17.20",
+    "mongoose": "^5.10.13",
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.6"
+  }
+}
