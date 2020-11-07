@@ -42,8 +42,6 @@ npm install
 
 **STEP-4:** Start the server
 
-- **without webpack:**
-
 ```
   npm run dev
 ```
