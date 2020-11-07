@@ -16,7 +16,7 @@ Manipulates the documents based on taggings
 
 ### Local:-
 
-**STEP-1:** Clone the repository
+**STEP-1:** Clone the repository and switch to master branch
 
 ```
 git clone https://github.com/Narayanan2696/document-management-component.git
