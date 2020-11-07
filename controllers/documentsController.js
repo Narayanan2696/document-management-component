@@ -2,6 +2,7 @@ const ResponseManager = require('../utils/responseManager');
 const ErrorConstants = require('../constants/errorConstants');
 const DocumentUtil = require('../utils/documentUtil');
 const DocumentDAO = require('../db/repository/documentDao');
+const log = require('../utils/loggerUtil');
 const _ = require('lodash');
 
 /**
@@ -21,11 +22,11 @@ const uploadDocument = (req, res) => {
           tags: JSON.parse(req.body.tags),
         };
         DocumentDAO.createDocument(newDocument).then((createdDoc) => {
-          console.log('created Document:', createdDoc);
+          log.infoLogger(createdDoc);
         });
       })
       .catch((err) => {
-        console.error(err.message);
+        log.errorLogger(err.message);
       });
     ResponseManager.customResponse(
       res,
@@ -70,6 +71,7 @@ const retrieveDocuments = (req, res) => {
     if (req.query.limit)
       _.extend(pagination, { limit: parseInt(req.query.limit) });
 
+    log.infoLogger(`tags requested: ${req.query.tags}`);
     DocumentDAO.getDocuments(queryDetails, pagination)
       .then((filteredDocuments) => {
         ResponseManager.documentResponse(res, 200, {
@@ -79,6 +81,7 @@ const retrieveDocuments = (req, res) => {
         });
       })
       .catch((err) => {
+        log.errorLogger(err.message);
         ResponseManager.errorResponse(
           res,
           400,
@@ -87,6 +90,7 @@ const retrieveDocuments = (req, res) => {
         );
       });
   } catch (error) {
+    log.errorLogger(error.message);
     ResponseManager.errorResponse(
       res,
       500,

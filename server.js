@@ -4,6 +4,7 @@ const app = express();
 const mongoose = require('mongoose');
 const cors = require('cors');
 const morgan = require('morgan');
+const log = require('./utils/loggerUtil');
 var fileupload = require('express-fileupload');
 var fs = require('fs');
 var path = require('path');
@@ -30,7 +31,7 @@ const documentRouter = require('./routes/documents');
 app.use(express.json());
 app.use(
   morgan('common', {
-    stream: fs.createWriteStream(path.join(__dirname, 'access.log'), {
+    stream: fs.createWriteStream(path.join(__dirname, 'logs/access.log'), {
       flags: 'a',
     }),
   })
@@ -43,6 +44,7 @@ app.use('/document', documentRouter);
 
 // health check
 app.get('/', (req, res) => {
+  log.infoLogger('performing health check!!');
   res.status(200).json({
     state: 'healthy',
   });
