@@ -13,7 +13,7 @@ process.on('unhandledRejection', (reason, promise) => {
   console.log('Unhandled Rejection at:', promise, 'reason:', reason);
 });
 
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 5001;
 const dbUrl = process.env.DATABASE_URL;
 
 let dbOptions = { useNewUrlParser: true, useUnifiedTopology: true };
