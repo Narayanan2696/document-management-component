@@ -4,6 +4,11 @@ const DocumentUtil = require('../utils/documentUtil');
 const DocumentDAO = require('../db/repository/documentDao');
 const _ = require('lodash');
 
+/**
+ * Upload document
+ * @param {*} req
+ * @param {*} res
+ */
 const uploadDocument = (req, res) => {
   try {
     DocumentUtil.uploadingFile(req.files.document, req.body)
@@ -37,6 +42,11 @@ const uploadDocument = (req, res) => {
   }
 };
 
+/**
+ * Fetches documents
+ * @param {*} req
+ * @param {*} res
+ */
 const retrieveDocuments = (req, res) => {
   try {
     // query params processing

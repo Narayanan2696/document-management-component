@@ -1,6 +1,11 @@
 const AWSService = require('../services/awsService');
 const _ = require('lodash');
 
+/**
+ * Upload the document stream to cloud
+ * @param {*} file uploaded file
+ * @param {*} body tags and other attribues
+ */
 const uploadingFile = (file, body) => {
   return new Promise((resolve, reject) => {
     try {

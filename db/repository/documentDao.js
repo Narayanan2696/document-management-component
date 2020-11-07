@@ -3,6 +3,11 @@ const DocumentConstants = require('../../constants/documentConstants');
 
 const _ = require('lodash');
 
+/**
+ * Create a new document
+ * @param {*} newDocument
+ * @returns {Promise}
+ */
 const createDocument = (newDocument) => {
   return new Promise((resolve, reject) => {
     try {
@@ -14,6 +19,12 @@ const createDocument = (newDocument) => {
   });
 };
 
+/**
+ * Fetch documents based on query details
+ * @param {*} queryDetails
+ * @param {*} pagination
+ * @returns {Array} array of matched documents
+ */
 const getDocuments = (queryDetails, pagination = {}) => {
   return new Promise((resolve, reject) => {
     try {
