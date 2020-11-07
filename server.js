@@ -52,6 +52,8 @@ app.get('/', (req, res) => {
 db.once('open', () => {
   console.log('********** Successfully connected to database @ ', dbUrl);
   app.listen(port, () => {
-    console.log('********** Express server started');
+    console.log(
+      '********** Document management Component express server started'
+    );
   });
 });
